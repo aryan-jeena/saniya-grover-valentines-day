@@ -8,7 +8,7 @@ function yesResponse() {
 function ughResponse() {
     const message = document.getElementById('message');
     message.style.display = 'block';
-    message.textContent = "I don't care, you're still my Valentine, and I love you! 😘";
+    message.textContent = "I don't care, you're still my Valentine, and I love you!";
     addConfetti();
 }
 
