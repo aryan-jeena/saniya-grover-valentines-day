@@ -58,6 +58,13 @@ h2 {
     top: 0;
 }
 
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
 button {
     font-family: 'Dancing Script', cursive;
     background: #ff6f61;
