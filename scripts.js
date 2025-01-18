@@ -18,8 +18,10 @@ function addConfetti() {
         const confetti = document.createElement('div');
         confetti.className = 'confetti';
         confetti.style.left = Math.random() * 100 + '%';
+        confetti.style.top = Math.random() * 100 + '%';
         confetti.style.backgroundColor = getRandomColor();
         confetti.style.animationDelay = Math.random() * 2 + 's';
+        confetti.style.animationDuration = Math.random() * 2 + 3 + 's';
         body.appendChild(confetti);
 
         // Automatically remove confetti after animation ends
