@@ -10,15 +10,15 @@
 <body>
     <div class="card">
         <header class="header">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Cupid_drawing_bow.svg/1024px-Cupid_drawing_bow.svg.png" alt="Cupid" class="cupid">
+            <img src="https://cdn.pixabay.com/photo/2016/04/01/09/26/angel-1295166_960_720.png" alt="Cupid" class="cupid">
             <h1>Saniya Grover</h1>
         </header>
         <main>
             <h2 class="subheading">Will You Be My Valentine?</h2>
             <div class="heart"></div>
             <div class="decorations">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Red_Rose.svg/1024px-Red_Rose.svg.png" alt="Rose" class="rose">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Red_Rose.svg/1024px-Red_Rose.svg.png" alt="Rose" class="rose">
+                <img src="https://cdn.pixabay.com/photo/2017/01/31/20/29/red-2023421_960_720.png" alt="Rose" class="rose">
+                <img src="https://cdn.pixabay.com/photo/2017/01/31/20/29/red-2023421_960_720.png" alt="Rose" class="rose">
             </div>
             <div class="buttons">
                 <button onclick="yesResponse()">Yes, of course!</button>
@@ -30,8 +30,37 @@
             <p class="footer-text">Made with ❤️ by Aryan Jeena</p>
         </footer>
     </div>
-    
 
-    <script src="script.js"></script>
+    <script>
+        function yesResponse() {
+            const message = document.getElementById('message');
+            message.style.display = 'block';
+            message.textContent = "I love you too, Saniya ❤️ You make my world brighter every day!";
+            addConfetti();
+        }
+
+        function ughResponse() {
+            const message = document.getElementById('message');
+            message.style.display = 'block';
+            message.textContent = "I don't care, you're still my Valentine, and I love you! 😘";
+            addConfetti();
+        }
+
+        function addConfetti() {
+            const body = document.body;
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                body.appendChild(confetti);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const message = document.getElementById('message');
+            message.style.display = 'none';
+        });
+    </script>
 </body>
 </html>
