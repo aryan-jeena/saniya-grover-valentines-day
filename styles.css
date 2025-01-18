@@ -20,20 +20,14 @@ body {
     height: 100%;
     background: url('https://cdn.pixabay.com/photo/2017/02/01/14/02/valentines-day-2038892_960_720.png') no-repeat center center/cover;
     z-index: -1;
-    opacity: 0.3;
-    animation: float 20s linear infinite;
-}
-
-@keyframes float {
-    0% { background-position: 0 0; }
-    100% { background-position: 100% 100%; }
+    opacity: 0.5;
 }
 
 /* Card */
 .card {
-    background: rgba(255, 255, 255, 0.9);
+    background: white;
     border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(255, 105, 180, 0.3);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     width: 90%;
     max-width: 600px;
     padding: 20px;
@@ -55,27 +49,19 @@ body {
     top: 10px;
     left: 10px;
     width: 50px;
-    animation: wiggle 2s ease-in-out infinite;
-}
-
-@keyframes wiggle {
-    0%, 100% { transform: rotate(-5deg); }
-    50% { transform: rotate(5deg); }
 }
 
 .header h1 {
     font-family: 'Great Vibes', cursive;
     font-size: 2.5em;
     margin: 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* Subheading */
 .subheading {
     font-family: 'Dancing Script', cursive;
     color: #ff1493;
-    font-size: 1.8em;
-    margin: 15px 0;
+    font-size: 2em;
+    margin: 20px 0;
 }
 
 /* Heart */
@@ -109,11 +95,6 @@ body {
     top: 0;
 }
 
-@keyframes pulse {
-    0% { transform: rotate(-45deg) scale(1); }
-    100% { transform: rotate(-45deg) scale(1.1); }
-}
-
 /* Roses */
 .decorations {
     display: flex;
@@ -123,7 +104,15 @@ body {
 
 .rose {
     width: 40px;
-    animation: spin 10s linear infinite;
+    transition: transform 0.3s ease;
+}
+
+.rose.left {
+    transform: rotate(-30deg);
+}
+
+.rose.right {
+    transform: rotate(30deg);
 }
 
 /* Buttons */
@@ -143,12 +132,15 @@ body {
     border-radius: 30px;
     cursor: pointer;
     font-family: 'Dancing Script', cursive;
-    transition: transform 0.3s, background-color 0.3s;
+    transition: all 0.3s ease;
 }
 
 .btn:hover {
-    background: #ff8a80;
     transform: scale(1.1);
+}
+
+.btn.yes {
+    background: #ff6f61;
 }
 
 .btn.ugh {
@@ -156,17 +148,14 @@ body {
     color: #333;
 }
 
-.btn.ugh:hover {
-    background: #bbbbbb;
-}
-
 /* Message */
-#message {
+.love-message {
     font-family: 'Dancing Script', cursive;
     font-size: 1.5em;
     color: #ff1493;
-    margin-top: 20px;
-    min-height: 40px;
+    margin: 20px 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 
 /* Footer */
@@ -183,43 +172,22 @@ body {
     to { opacity: 1; }
 }
 
-@keyframes spin {
-    from { transform: rotate(0); }
-    to { transform: rotate(360deg); }
+@keyframes pulse {
+    0% { transform: rotate(-45deg) scale(1); }
+    100% { transform: rotate(-45deg) scale(1.1); }
 }
 
-/* Floating hearts */
-.floating-heart {
+.confetti {
     position: fixed;
-    width: 20px;
-    height: 20px;
-    background-color: #ff69b4;
-    transform: rotate(45deg);
-    animation: floatUp 5s linear infinite;
-    z-index: -1;
+    width: 10px;
+    height: 10px;
+    background-color: #ff6f61;
+    animation: fall 3s linear forwards;
+    z-index: 1000;
 }
 
-.floating-heart::before,
-.floating-heart::after {
-    content: '';
-    width: 20px;
-    height: 20px;
-    background-color: #ff69b4;
-    border-radius: 50%;
-    position: absolute;
-}
-
-.floating-heart::before {
-    top: -10px;
-    left: 0;
-}
-
-.floating-heart::after {
-    top: 0;
-    left: -10px;
-}
-
-@keyframes floatUp {
-    0% { transform: translateY(100vh) rotate(45deg); }
-    100% { transform: translateY(-100px) rotate(45deg); }
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+    }
 }
