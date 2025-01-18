@@ -8,15 +8,27 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Saniya Grover</h1>
-        <h2>Will You Be My Valentine?</h2>
-        <div class="heart"></div>
-        <div class="buttons">
-            <button onclick="yesResponse()">Yes, of course!</button>
-            <button onclick="ughResponse()">Boys are so ugh</button>
-        </div>
-        <p id="message"></p>
+    <div class="card">
+        <header class="header">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Cupid_drawing_bow.svg/1024px-Cupid_drawing_bow.svg.png" alt="Cupid" class="cupid">
+            <h1>Saniya Grover</h1>
+        </header>
+        <main>
+            <h2 class="subheading">Will You Be My Valentine?</h2>
+            <div class="heart"></div>
+            <div class="decorations">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Red_Rose.svg/1024px-Red_Rose.svg.png" alt="Rose" class="rose">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Red_Rose.svg/1024px-Red_Rose.svg.png" alt="Rose" class="rose">
+            </div>
+            <div class="buttons">
+                <button onclick="yesResponse()">Yes, of course!</button>
+                <button onclick="ughResponse()">Boys are so ugh</button>
+            </div>
+            <p id="message"></p>
+        </main>
+        <footer>
+            <p class="footer-text">Made with ❤️ by Aryan Jeena</p>
+        </footer>
     </div>
 
     <script src="script.js"></script>
