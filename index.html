@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="background">
+        <img src="https://cdn.pixabay.com/photo/2017/02/01/14/02/valentines-day-2038892_960_720.png" alt="Hearts Background" class="bg-image">
+    </div>
     <div class="card">
         <header class="header">
             <img src="https://cdn.pixabay.com/photo/2016/04/01/09/26/angel-1295166_960_720.png" alt="Cupid" class="cupid">
@@ -21,8 +24,8 @@
                 <img src="https://cdn.pixabay.com/photo/2017/01/31/20/29/red-2023421_960_720.png" alt="Rose" class="rose">
             </div>
             <div class="buttons">
-                <button onclick="yesResponse()">Yes, of course!</button>
-                <button onclick="ughResponse()">Boys are so ugh</button>
+                <button class="btn yes" onclick="yesResponse()">Yes, of course!</button>
+                <button class="btn ugh" onclick="ughResponse()">Boys are so ugh</button>
             </div>
             <p id="message"></p>
         </main>
@@ -30,7 +33,6 @@
             <p class="footer-text">Made with ❤️ by Aryan Jeena</p>
         </footer>
     </div>
-
     <script src="scripts.js"></script>
 </body>
 </html>
