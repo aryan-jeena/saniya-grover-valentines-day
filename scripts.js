@@ -18,7 +18,23 @@ function addConfetti() {
         const confetti = document.createElement('div');
         confetti.className = 'confetti';
         confetti.style.left = Math.random() * 100 + '%';
+        confetti.style.backgroundColor = getRandomColor();
         confetti.style.animationDelay = Math.random() * 2 + 's';
         body.appendChild(confetti);
+
+        // Automatically remove confetti after animation ends
+        confetti.addEventListener('animationend', () => {
+            confetti.remove();
+        });
     }
 }
+
+function getRandomColor() {
+    const colors = ['#ff6f61', '#ff9a9e', '#fecfef', '#ffcccb', '#ffc107'];
+    return colors[Math.floor(Math.random() * colors.length)];
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const message = document.getElementById('message');
+    message.style.display = 'none';
+});
