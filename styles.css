@@ -1,193 +1,333 @@
-/* Reset */
-body {
+/* 
+  RESET & GLOBAL
+======================================================= */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
     font-family: 'Roboto', sans-serif;
-    overflow: hidden;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffe6e6;
-}
-
-/* Background */
-.background {
+    min-height: 100vh; 
+    background-color: #fff5f8;
+    position: relative;
+    overflow-y: auto; /* So footer is visible if card is tall */
+  }
+  
+  /* 
+    BACKGROUND
+  ======================================================= */
+  .background {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('https://cdn.pixabay.com/photo/2017/02/01/14/02/valentines-day-2038892_960_720.png') no-repeat center center/cover;
-    z-index: -1;
-    opacity: 0.5;
-}
-
-/* Card */
-.card {
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    width: 90%;
-    max-width: 600px;
-    padding: 20px;
-    text-align: center;
-    animation: fadeIn 2s ease-in-out;
-}
-
-/* Header */
-.header {
-    background: linear-gradient(135deg, #ff6f61, #ff9a9e);
-    padding: 20px;
-    border-radius: 20px 20px 0 0;
-    color: white;
-    position: relative;
-}
-
-.cupid {
+    background: url('https://cdn.pixabay.com/photo/2017/02/01/14/02/valentines-day-2038892_960_720.png')
+      no-repeat center center / cover;
+    z-index: -2;
+    opacity: 0.3;
+  }
+  
+  /* 
+    FADE-IN
+  ======================================================= */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* 
+    FRONT COVER
+  ======================================================= */
+  .card-front {
     position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 50px;
-}
-
-.header h1 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 500px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 40px 20px;
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  .front-message {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.3em;
+    color: #f59daf;
+    margin-bottom: 25px;
+  }
+  
+  .open-btn {
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2em;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: 'Dancing Script', cursive;
+    background: #f9c2d2; 
+    color: #fff;
+    transition: all 0.3s ease;
+  }
+  .open-btn:hover {
+    transform: scale(1.1);
+  }
+  
+  /* 
+    MAIN CARD
+  ======================================================= */
+  .card {
+    width: 90%;
+    max-width: 700px;
+    margin: 80px auto; 
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+    position: relative;
+  }
+  
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #fba3bd, #fdbbd0);
+    padding: 25px;
+    border-radius: 20px 20px 0 0;
+  }
+  .header h1 {
     font-family: 'Great Vibes', cursive;
     font-size: 2.5em;
     margin: 0;
-}
-
-.subheading {
+    color: #fff;
+    text-shadow: 2px 2px #c05b73;
+  }
+  
+  /* 
+    VALENTINE SECTION
+    (subheading, heart, buttons, corner images)
+  ======================================================= */
+  .valentine-section {
+    position: relative; /* for corner images */
+    margin: 20px 0 40px; 
+    /* Enough vertical space for heading, heart, buttons, corners */
+    min-height: 180px;
+  }
+  
+  /* SUBHEADING */
+  .subheading {
     font-family: 'Dancing Script', cursive;
-    color: #ff1493;
-    font-size: 2em;
-    margin: 20px 0;
-}
-
-/* Heart */
-.heart {
-    width: 100px;
-    height: 100px;
-    background-color: #ff1493;
+    color: #f59daf; 
+    font-size: 1.9em;
+    margin-bottom: 10px;
+  }
+  
+  /* HEART SHAPE */
+  .heart-shape {
+    width: 80px;  
+    height: 80px;
+    background-color: #f59daf;
     position: relative;
-    margin: 20px auto;
+    margin: 0 auto 15px; /* push it a bit away from subheading */
+    margin-top: 50px;
     transform: rotate(-45deg);
-    animation: pulse 1s infinite alternate;
-}
-
-.heart::before,
-.heart::after {
+    animation: pulse 1.2s infinite alternate;
+  }
+  .heart-shape::before,
+  .heart-shape::after {
     content: '';
-    width: 100px;
-    height: 100px;
-    background-color: #ff1493;
+    width: 80px;
+    height: 80px;
+    background-color: #f59daf;
     border-radius: 50%;
     position: absolute;
-}
-
-.heart::before {
-    top: -50px;
+  }
+  .heart-shape::before {
+    top: -40px;
     left: 0;
-}
-
-.heart::after {
-    left: 50px;
+  }
+  .heart-shape::after {
+    left: 40px;
     top: 0;
-}
-
-/* Roses */
-.decorations {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 0;
-}
-
-.rose {
-    width: 40px;
-    transition: transform 0.3s ease;
-}
-
-.rose.left {
-    transform: rotate(-30deg);
-}
-
-.rose.right {
-    transform: rotate(30deg);
-}
-
-/* Buttons */
-.buttons {
+  }
+  @keyframes pulse {
+    0%   { transform: rotate(-45deg) scale(1);   }
+    100% { transform: rotate(-45deg) scale(1.1); }
+  }
+  
+  /* BUTTONS */
+  .buttons {
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin: 20px 0;
-}
-
-.btn {
-    background: #ff6f61;
+    margin-top: 75px;
+  }
+  .btn {
     border: none;
-    padding: 15px 25px;
-    color: white;
+    padding: 12px 25px;
+    color: #fff;
     font-size: 1.2em;
     border-radius: 30px;
     cursor: pointer;
     font-family: 'Dancing Script', cursive;
     transition: all 0.3s ease;
-}
-
-.btn:hover {
+    z-index: 999; /* So it's on top of images */
+  }
+  .btn:hover {
     transform: scale(1.1);
-}
-
-.btn.yes {
-    background: #ff6f61;
-}
-
-.btn.ugh {
-    background: #cccccc;
+  }
+  .btn.yes {
+    background: #f9c2d2;
+  }
+  .btn.ugh {
+    background: #e5e7eb; 
     color: #333;
-}
-
-/* Message */
-.love-message {
+  }
+  
+  /* CORNER IMAGES (in .valentine-section) */
+  .corner-img {
+    position: absolute;
+    display: none; /* hidden by default; show on yesResponse() */
+    z-index: 1;    /* behind the buttons but above heart shape */
+    width: 90px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+    object-fit: cover;
+  }
+  
+  /* Align top corners with the subheading area */
+  .corner-left-top {
+    top: 0;       /* same as subheading top of .valentine-section */
+    left: 25px;   /* shift right so not off card */
+  }
+  .corner-right-top {
+    top: 35px;
+    right: -7px;
+  }
+  
+  /* Align bottom corners with bottom of .valentine-section */
+  .corner-left-bottom {
+    bottom: -40px;
+    left: 30px;
+  }
+  .corner-right-bottom {
+    bottom: -40px;
+    right: 30px;
+  }
+  
+  /* Special transforms */
+  .rotate-90 {
+    transform: rotate(90deg);
+  }
+  .scale-150 {
+    width: 165px; /* 50% bigger than 90px */
+  }
+  
+  /* 
+    MESSAGE SECTION
+  ======================================================= */
+  .message-container {
+    margin: 30px auto;
+    max-width: 600px;
+    text-align: center;
+  }
+  .love-message {
     font-family: 'Dancing Script', cursive;
-    font-size: 1.5em;
-    color: #ff1493;
+    font-size: 1.2em;
+    color: #f59daf;
     margin: 20px 0;
     opacity: 0;
     transition: opacity 0.5s ease;
-}
-
-/* Footer */
-.footer-text {
+    line-height: 1.5;
+    padding: 40px 20px; 
+  }
+  
+  /* FOOTER */
+  .footer-text {
     font-family: 'Roboto', sans-serif;
-    color: #ff6f61;
-    font-size: 0.9em;
-    margin-top: 20px;
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes pulse {
-    0% { transform: rotate(-45deg) scale(1); }
-    100% { transform: rotate(-45deg) scale(1.1); }
-}
-
-.confetti {
+    color: #f9b4cc;
+    font-size: 0.95em;
+    margin-top: -50px;
+  }
+  
+  /* CONFETTI */
+  .confetti {
     position: fixed;
-    width: 10px;
-    height: 10px;
-    background-color: #ff6f61;
-    animation: fall 3s linear forwards;
+    width: 14px;
+    height: 14px;
+    background-color: #f78caf; 
     z-index: 1000;
-}
-
-@keyframes fall {
+    animation: fall 3s linear forwards;
+  }
+  @keyframes fall {
     to {
-        transform: translateY(100vh) rotate(360deg);
+      transform: translateY(100vh) rotate(360deg);
     }
-}
+  }
+  
+  /* MEDIA QUERIES (Optional) */
+  @media (max-width: 600px) {
+    .card-front {
+      max-width: 350px;
+      padding: 30px 15px;
+    }
+    .front-message {
+      font-size: 2em;
+    }
+  
+    .card {
+      max-width: 90%;
+      margin: 60px auto;
+    }
+    .header h1 {
+      font-size: 2em;
+    }
+    .subheading {
+      font-size: 1.6em;
+    }
+    .heart-shape {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 10px;
+    }
+    .heart-shape::before,
+    .heart-shape::after {
+      width: 60px;
+      height: 60px;
+      top: -30px;
+      left: 0;
+    }
+    .btn {
+      font-size: 1em;
+      padding: 10px 20px;
+    }
+    .corner-img {
+      width: 70px;
+    }
+    .scale-150 {
+      width: 105px;
+    }
+    .corner-left-top {
+      left: 20px;
+    }
+    .corner-right-top {
+      right: 20px;
+    }
+    .corner-left-bottom {
+      left: 20px;
+    }
+    .corner-right-bottom {
+      right: 20px;
+    }
+    .love-message {
+      font-size: 1em;
+      padding: 30px 15px;
+    }
+  }
+  

@@ -1,36 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Be My Valentine</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive Valentine Card</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&family=Roboto:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <div class="background"></div>
-    <div class="card">
-        <header class="header">
-            <img src="https://cdn.pixabay.com/photo/2016/04/01/09/26/angel-1295166_960_720.png" alt="Cupid" class="cupid">
-            <h1>Saniya Grover</h1>
-        </header>
-        <main>
-            <h2 class="subheading">Will You Be My Valentine?</h2>
-            <div class="heart"></div>
-            <div class="decorations">
-                <img src="https://cdn.pixabay.com/photo/2017/01/31/20/29/red-2023421_960_720.png" alt="Rose" class="rose left">
-                <img src="https://cdn.pixabay.com/photo/2017/01/31/20/29/red-2023421_960_720.png" alt="Rose" class="rose right">
-            </div>
-            <div class="buttons">
-                <button class="btn yes" onclick="yesResponse()">Yes, of course!</button>
-                <button class="btn ugh" onclick="ughResponse()">Boys are so ugh</button>
-            </div>
-            <p id="message" class="love-message"></p>
-            <footer>
-                <p class="footer-text">Made with ❤️ by Aryan Jeena</p>
-            </footer>
-        </main>
-    </div>
-    <script src="scripts.js"></script>
+  <!-- Background -->
+  <div class="background"></div>
+
+  <!-- Front Cover (centered, smaller) -->
+  <div id="cardFront" class="card-front">
+    <h1 class="front-message">Happy Valentine's Day</h1>
+    <button class="open-btn" onclick="openCard()">Open</button>
+  </div>
+
+  <!-- Main Card (initially hidden) -->
+  <div id="mainCard" class="card" style="display: none;">
+    <header class="header">
+      <h1>Saniya Grover</h1>
+    </header>
+
+    <main>
+      <!-- Valentine Section: relative container for subheading, heart, buttons, corner images -->
+      <div class="valentine-section">
+        <h2 class="subheading">Will You Be My Valentine?</h2>
+
+        <div class="heart-shape"></div>
+
+        <div class="buttons">
+          <button class="btn yes" onclick="yesResponse()">Yes, of course!</button>
+          <button class="btn ugh" onclick="ughResponse()">Boys are so ugh</button>
+        </div>
+
+        <!-- Corner Images (hidden by default; appear after "Yes, of course!") -->
+        <img src="images/AS3.jpg" alt="AS3" class="corner-img corner-left-top rotate-90">
+        <img src="images/AS1.jpg" alt="AS1" class="corner-img corner-right-top scale-150">
+        <img src="images/AS4.jpg" alt="AS4" class="corner-img corner-left-bottom">
+        <img src="images/AS2.jpg" alt="AS2" class="corner-img corner-right-bottom">
+      </div>
+
+      <!-- Love Message -->
+      <div class="message-container">
+        <p id="message" class="love-message"></p>
+      </div>
+
+      <footer>
+        <p class="footer-text">Made with 💕 by Aryan Jeena</p>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="scripts.js"></script>
 </body>
 </html>
